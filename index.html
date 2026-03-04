@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tu Multiverso 💖</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    transition:0.5s;
+    text-align:center;
+    overflow-x:hidden;
+}
+
+/*pantalla de cargar */
+#loader{
+    position:fixed;
+    width:100%;
+    height:100%;
+    background:#111;
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    z-index:1000;
+}
+
+/* TEMAS */
+.rosa{
+    background:linear-gradient(135deg,#ff9ad5,#ff6ec7);
+    color:white;
+}
+
+.crema{
+    background:#44a2f0;
+    color:#5a3e36;
+}
+
+.oscuro{
+    background:#111;
+    color:white;
+}
+
+button{
+    padding:12px 20px;
+    margin:10px;
+    border:none;
+    border-radius:25px;
+    font-size:16px;
+    cursor:pointer;
+    background:white;
+    color:#ff2fa0;
+    transition:0.3s;
+}
+
+button:hover{
+    transform:scale(1.1);
+}
+
+.seccion{
+    display:none;
+    padding:20px;
+}
+
+img{
+    max-width:200px;
+    margin:15px;
+    border-radius:15px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.3);
+    transition:0.3s;
+}
+
+img:hover{
+    transform:scale(1.05);
+}
+
+/* corazones */
+.corazon{
+    position:fixed;
+    top:-10px;
+    font-size:20px;
+    animation:caer 5s linear infinite;
+}
+
+/* no y formulario  */
+
+h1{
+    margin-top:40px;
+    font-size:28px;
+}
+
+.message{
+    margin-top:10px;
+    min-height:30px;
+    font-size:18px;
+}
+
+#mainScreen{
+    position:relative;
+    height:250px;
+}
+
+#yesBtn, #noBtn{
+    padding:12px 25px;
+    border:none;
+    border-radius:30px;
+    font-size:16px;
+    cursor:pointer;
+    transition:0.3s;
+    position:absolute;
+}
+
+#yesBtn{
+    background:white;
+    color:#7a5fff;
+    left:50%;
+    top:60%;
+    transform:translate(-50%, -50%);
+}
+
+#noBtn{
+    background:black;
+    color:white;
+    left:50%;
+    top:75%;
+    transform:translate(-50%, -50%);
+}
+.hidden{
+    display:none;
+}
+
+form{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    width:90%;
+    max-width:350px;
+    margin:30px auto;
+}
+
+input, select, textarea{
+    padding:12px;
+    border-radius:10px;
+    border:none;
+    font-size:14px;
+}
+
+/* SOLO el botón del formulario */
+form button{
+    position:static;
+    background:white;
+    color:#7a5fff;
+    font-weight:bold;
+    padding:12px;
+    border-radius:25px;
+    cursor:pointer;
+}
+
+#resultCard{
+    margin-top:20px;
+    background:white;
+    color:#7a5fff;
+    padding:20px;
+    border-radius:15px;
+    width:90%;
+    max-width:350px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+@keyframes caer{
+    to{
+        transform:translateY(100vh);
+    }
+}
+</style>
+</head>
+
+<body class="oscuro">
+
+<div id="loader">
+<h2>Cargando el mensaje de perdon… 💫</h2>
+<p id="barra">0%</p>
+</div>
+
+<audio id="miMusica" loop>
+    <source src="blessd---trinidad-bendita.mp3" type="audio/mpeg">
+</audio>
+
+<h1> Bienvenida a mi mente </h1><button onclick="toggleMusica()" id="btnMusica">SIEMPRE BLESS 🎵</button>
+<p>Porque todo aquí tiene algo que me recuerda a ti…</p>
+
+
+<button onclick="mostrar('hello','rosa')">🎀 Mundo Hello</button>
+<button onclick="mostrar('princesa','crema')">👑 Princesa Azul</button>
+<button onclick="mostrar('zeus','crema')">🐶 Mundo Zeus</button>
+<button onclick="mostrar('deporte','oscuro')">🏐 & ⛸ Deportes</button>
+<button onclick="mostrar('dulces','rosa')">🍬 Nivel Dulce</button>
+<button onclick="mostrar('final','oscuro')">💌 Mensaje Real</button>
+
+<!-- HELLO -->
+<div id="hello" class="seccion">
+<h2>🎀 hello kitty y bless </h2>
+<p>Todo rosado porque sé que le encanta hello kitty</p>
+<img src="images/hello kitty.png">
+<p>me siento como un bless, totalmente arrepentido de su error</p>
+<p>cada vez que escucho a bless, me recuerda a una palabra, pero cual seria ?</p>
+<p>"...-"</p>
+<img src="images/bless PSN.jpg">
+</div>
+
+<!-- PRINCESA -->
+<div id="princesa" class="seccion">
+<h2> Reino de Princesa Azul</h2>
+<img src="images/valeria.jpeg">
+<p>ese dia que la vi con el disfraz de princesa quede encantado</p>
+<p>me llega tanto la nostalgia que esto no parece una disculpa😓 </p>
+</div>
+
+<!-- ZEUS -->
+<div id="zeus" class="seccion">
+<h2>🐶 Consejo de Zeus</h2>
+<p>Si Zeus pudiera hablar me diria:</p>
+<p><b>"Humano tonto,ella no lo merecia, pierde el Orgullo"</b></p>
+<p>Y tiene razon... por eso estoy aca </p>
+</div>
+
+<!-- DEPORTES -->
+<div id="deporte" class="seccion">
+<h2> Partido Decisivo</h2>
+<p>Perdón: <span id="score">24</span></p>
+<p>Orgullo: 23</p>
+<button onclick="punto()">Haz el punto final</button>
+
+<h3>⛸ Futuro</h3>
+<p>Yo se que no quiere seguir con el patinaje o que piensa volver</p>
+<p>igual estare apoyandola en lo que sea </p>
+</div>
+
+<!-- DULCES -->
+<div id="dulces" class="seccion">
+<h2>🍬 Atrapa tus favoritos</h2>
+<img src="images/gomitas nano.png">
+<img src="images/chocolate jumbo.png">
+<p>Toca 4 dulces:</p>
+<div>
+<span onclick="sumar(this)" style="font-size:30px;"><img src="images/gomitas nano.png"></span>
+<span onclick="sumar(this)" style="font-size:30px;"><img src="images/chocolate jumbo.png"></span>
+<span onclick="sumar(this)" style="font-size:30px;"><img src="images/gomitas nano.png"></span>
+<span onclick="sumar(this)" style="font-size:30px;"><img src="images/chocolate jumbo.png"></span>
+</div>
+<p id="contador">0 / 4</p>
+</div>
+
+<!-- FINAL -->
+<div id="final" class="seccion">
+<h2>Bueno como final hablo yo Daniel</h2>
+<p>estuve pensando mucho en cómo actué contigo </p>
+<p>Reaccioné desde mi orgullo y sé que no fue la forma correcta en actuar</p>
+<p>No vengo a impresionarla ni a rogarle, vengo a aceptar mi error</p>
+<p>Sé que te dolio, y eso no estuvo bien por que a mi tambien </p>
+<p>No quiero justificarme  Lo que hice estuvo mal y lo reconozco</p>
+<p>estoy trabajando en cambiar mis actitudes y en ser más consciente de cómo reacciono</p>
+<p>No espero que olvides lo que pasó, solo quería pedirte perdón de manera sincera</p>
+<p>Y si aun así no es suficiente....</p>
+<div class="container" id="mainScreen">
+
+   <h1>¿Me das la oportunidad de demostrarlo? </h1>
+    <div class="message" id="message"></div>
+
+    <button id="yesBtn">Sí </button>
+    <button id="noBtn">No </button>
+
+</div>
+
+</div>
+
+
+<div class="hidden" id="formScreen">
+    <h1>no me lo esperaba😅</h1>
+
+    <form id="contactForm">
+        <input type="text" placeholder="enserio me perdona??" required>
+        <input type="text" placeholder="nonono pero enserio???" required>
+        <input type="text" placeholder="cierto que usted cumple el 14 de julio?" required>
+        <textarea placeholder="por que dijo que si??" required></textarea>
+
+        <select required>
+            <option value="">okey por donde le escribo?</option>
+            <option>Instagram</option>
+            <option>tik tok</option>
+            <option>whatsapp</option>
+            <option>todas las anteriores</option>
+        </select>
+
+        <button type="submit">Enviar</button>
+    </form>
+
+    <div id="resultCard" class="hidden"></div>
+</div>
+
+
+<script>
+
+
+function mostrar(id,tema){
+    document.body.className = tema;
+    const secciones = document.querySelectorAll('.seccion');
+    secciones.forEach(sec=>sec.style.display="none");
+    document.getElementById(id).style.display="block";
+}
+
+function punto(){
+    document.getElementById("score").innerText="25";
+    alert(" ¡Ganó el Perdón!");
+}
+
+let puntos=0;
+function sumar(el){
+    el.style.display="none";
+    puntos++;
+    document.getElementById("contador").innerText=puntos+" / 4";
+    if(puntos==4){
+        alert(" Le debo Trululu nano y una Jumbo.");
+    }
+}
+
+/* corazones */
+setInterval(()=>{
+    const heart=document.createElement("div");
+    heart.className="corazon";
+    heart.innerHTML="💖";
+    heart.style.left=Math.random()*100+"vw";
+    heart.style.fontSize=(Math.random()*20+15)+"px";
+    document.body.appendChild(heart);
+    setTimeout(()=>heart.remove(),5000);
+},500);
+
+
+//MOVIMIENTO DEL NO   Y  FORMULARIO
+
+let noBtn = document.getElementById("noBtn");
+let yesBtn = document.getElementById("yesBtn");
+let message = document.getElementById("message");
+
+let attempts = 0;
+
+let messages = [
+"Hagale, no seas así",
+"le compro empanada ",
+"me va hacer rogar? ",
+"ashh, mucha negacion "
+];
+
+noBtn.addEventListener("click", function(){
+
+    if(attempts < 4){
+
+        message.textContent = messages[attempts];
+
+        attempts++;
+
+        // hacer más pequeño el botón NO
+        let scaleNo = 1 - attempts * 0.07;
+        noBtn.style.transform = `scale(${scaleNo})`;
+
+        // hacer más grande el botón SI
+        let scaleYes = 1 + attempts * 0.05;
+        yesBtn.style.transform = `translateX(-50%) scale(${scaleYes})`;
+
+        moveNoButton();
+
+    } else {
+
+        noBtn.classList.add("hidden");
+        message.textContent = "Ups, creo que el boton se daño...";
+    }
+
+});
+
+function moveNoButton(){
+
+    let screenWidth = window.innerWidth;
+    let screenHeight = window.innerHeight;
+
+    let randomX;
+    let randomY;
+
+    // 30% probabilidad de acercarse al botón SI
+    if(Math.random() < 0.3){
+
+        let yesRect = yesBtn.getBoundingClientRect();
+
+        randomX = yesRect.left + (Math.random()*100 - 50);
+        randomY = yesRect.top + (Math.random()*100 - 50);
+
+    }else{
+
+        randomX = Math.random() * (screenWidth - 100);
+        randomY = Math.random() * (screenHeight - 50);
+    }
+
+    noBtn.style.left = randomX + "px";
+    noBtn.style.top = randomY + "px";
+}
+
+yesBtn.addEventListener("click", function(){
+    document.getElementById("mainScreen").classList.add("hidden");
+    document.getElementById("formScreen").classList.remove("hidden");
+});
+
+document.getElementById("contactForm").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    let inputs = this.querySelectorAll("input, textarea, select");
+
+    let resultHTML = `
+        <h2> entiendo gracias por comprenderme</h2>
+        <p><strong>era jodiendo jsjsjsjsjs</strong> </p>
+        <p><strong>okey si algo me dice </strong> </p>
+        <p><strong>el diablo</strong> </p>
+        <p><strong>quiero que me hable por : ${inputs[4].value}</strong> </p>
+        <h3>la voy a volver a seguir en todo si algo le escribo</h3>
+    `;
+
+    let resultCard = document.getElementById("resultCard");
+    resultCard.innerHTML = resultHTML;
+    resultCard.classList.remove("hidden");
+
+    this.reset();
+});
+
+/* pantalla de carga*/
+/* carga */
+let carga=0;
+const barra=document.getElementById("barra");
+const loader=document.getElementById("loader");
+const intro=document.getElementById("intro");
+
+const intervalo=setInterval(()=>{
+    carga+=5;
+    barra.innerText=carga+"%";
+    if(carga>=100){
+        clearInterval(intervalo);
+        loader.style.display="none";
+        intro.classList.add("active");
+        document.body.className="rosa";
+    }
+},100);
+
+
+
+/* boton de musica*/
+
+let musica = document.getElementById("miMusica");
+let btnMusica = document.getElementById("btnMusica");
+let reproduciendo = false;
+
+function toggleMusica(){
+    if(!reproduciendo){
+        musica.play();
+        btnMusica.innerText = "PAUSAR BLESS ⏸";
+        reproduciendo = true;
+    }else{
+        musica.pause();
+        btnMusica.innerText = "SIEMPRE BLESS 🎵";
+        reproduciendo = false;
+    }
+}
+</script>
+
+</body>
+</html>
